@@ -15,7 +15,7 @@ import (
 )
 
 const (
-	checkoutURL = "https://pay.fondy.eu/api/checkout/url/"
+	checkoutUrl = "https://pay.fondy.eu/api/checkout/url/"
 
 	merchantPassword = "test"
 	currencyUSD      = "USD"
@@ -35,10 +35,10 @@ type CheckoutRequest struct {
 	MerchantId        string `json:"merchant_id"`
 	OrderDesc         string `json:"order_desc"`
 	Signature         string `json:"signature"`
-	Amout             string `json:"amout"`
+	Amount            string `json:"amount"`
 	Currency          string `json:"currency"`
 	ResponseURL       string `json:"response_url,omitempty"`
-	ServerCallbackURL string `json:"sender_callback_url,omitempty"`
+	ServerCallbackURL string `json:"server_callback_url,omitempty"`
 	SenderEmail       string `json:"sender_email,omitempty"`
 	Language          string `json:"lang,omitempty"`
 	ProductId         string `json:"product_id,omitempty"`
@@ -53,7 +53,7 @@ type InterimResponse struct {
 type CallbackbackResponse struct {
 	OrderId                 string      `json:"order_id"`
 	MerchantId              int         `json:"merchant_id"`
-	Amout                   string      `json:"amout"`
+	Amount                  string      `json:"amout"`
 	Currency                string      `json:"currency"`
 	OrderStatus             string      `json:"order_status"`    // created; processing; declined; approved; expired; reversed;
 	ResponseStatus          string      `json:"response_status"` // 1) success; 2) failure
@@ -133,9 +133,9 @@ func main() {
 		OrderId:           id.String(),
 		MerchantId:        merchantId,
 		OrderDesc:         "Lekcie",
-		Amout:             "7000",
+		Amount:            "700",
 		Currency:          currencyUSD,
-		ServerCallbackURL: "https:/",
+		ServerCallbackURL: "https://102e-46-135-18-75.ngrok-free.app/callback", // link in you ngrok server with callback method
 	}
 
 	checkoutReq.SetSignature(merchantPassword)
@@ -143,7 +143,7 @@ func main() {
 	request := APIRequest{Request: checkoutReq}
 	requestBody, _ := json.Marshal(request)
 
-	resp, err := http.Post(checkoutURL, "application/json", bytes.NewBuffer(requestBody))
+	resp, err := http.Post(checkoutUrl, "application/json", bytes.NewBuffer(requestBody))
 	if err != nil {
 		panic(err)
 	}
