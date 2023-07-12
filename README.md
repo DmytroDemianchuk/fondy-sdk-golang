@@ -1,10 +1,14 @@
 # Example of using fondy in Golang
 
-You must instal ngrok server and start him in your computer
+## Run (Locally)
+You must instal ngrok in your computer
 
 https://ngrok.com/download
 
-Start
+And start him
+./ngrok http 8080
+
+
 ```
 go run client/main.go
 ```
