@@ -6,7 +6,9 @@ You must instal ngrok in your computer
 https://ngrok.com/download
 
 And start him
+```
 ./ngrok http 8080
+```
 
 
 ```
