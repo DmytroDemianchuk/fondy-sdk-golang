@@ -132,10 +132,10 @@ func main() {
 	checkoutReq := &CheckoutRequest{
 		OrderId:           id.String(),
 		MerchantId:        merchantId,
-		OrderDesc:         "Lekcie",
-		Amount:            "700",
+		OrderDesc:         "Course",
+		Amount:            "7000",
 		Currency:          currencyUSD,
-		ServerCallbackURL: "https://102e-46-135-18-75.ngrok-free.app/callback", // link in you ngrok server with callback method
+		ServerCallbackURL: "https://a8da-213-194-245-81.ngrok-free.app/callback", // link in you ngrok server with callback method
 	}
 
 	checkoutReq.SetSignature(merchantPassword)
