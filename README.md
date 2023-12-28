@@ -16,7 +16,7 @@ https://ngrok.com/download
 5.Add authtoken
 
 6.Start a tunnel
-```ngrok http 8080``
+```ngrok http 8080```
 
 7.You must copy forwarding link
 
